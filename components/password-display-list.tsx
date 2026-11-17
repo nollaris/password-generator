@@ -13,7 +13,7 @@ import { calculatePasswordStrength } from "@/lib/password-strength";
  * @returns Tailwind color class.
  */
 function charClass(char: string) {
-  if (/[0-9]/.test(char)) return "text-primary";
+  if (/[0-9]/.test(char)) return "text-digit";
   if (/[a-zA-Z]/.test(char)) return "text-foreground";
   return "text-symbol";
 }

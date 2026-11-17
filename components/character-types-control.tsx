@@ -10,7 +10,6 @@ export interface CharPoolItem {
   id: string;
   title: string;
   range: string;
-  sample: string;
   description: string;
 }
 
@@ -19,28 +18,24 @@ export const CHAR_POOL_ITEMS: CharPoolItem[] = [
     id: "uppercase",
     title: "Uppercase letters",
     range: "A–Z",
-    sample: "ABC",
     description: "Capital Latin glyphs",
   },
   {
     id: "lowercase",
     title: "Lowercase letters",
     range: "a–z",
-    sample: "abc",
     description: "Small Latin glyphs",
   },
   {
     id: "number",
     title: "Numeric digits",
     range: "0–9",
-    sample: "012",
     description: "Decimal numbers",
   },
   {
     id: "symbol",
     title: "Special symbols",
     range: "!@#$...",
-    sample: "%&#*",
     description: "High-entropy punctuation",
   },
 ];
@@ -88,7 +83,7 @@ export function CharacterTypesControl(props: {
               onClick={() => handleToggle(item.id)}
               title={item.description}
               className={cn(
-                "flex items-center gap-2 px-2.5 py-1.5 rounded-lg border cursor-pointer select-none transition-colors",
+                "flex items-center gap-2 cursor-pointer select-none transition-colors",
                 isChecked
                   ? "bg-card border-foreground/25"
                   : "bg-muted/30 border-border/60 hover:border-border opacity-70",
@@ -108,9 +103,6 @@ export function CharacterTypesControl(props: {
               >
                 {item.title}
               </Label>
-              <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
-                {item.sample}
-              </span>
             </div>
           );
         })}

@@ -42,7 +42,7 @@ export function PasswordQuantityControl(props: {
     <div className="space-y-2">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Layers className="h-4 w-4 text-primary" />
+          <Layers className="h-4 w-4 text-digit" />
           <Label
             htmlFor="quantity-input"
             className="text-xs font-semibold text-foreground tracking-tight"
