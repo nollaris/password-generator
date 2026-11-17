@@ -19,6 +19,9 @@ import { AlertCircle, KeyRound } from "lucide-react";
 
 const emptySubscribe = () => () => {};
 
+// Disable Zod v4 JIT (`new Function`) so strict CSPs do not report eval violations.
+z.config({ jitless: true });
+
 const formSchema = z.object({
   length: z
     .number()
@@ -155,12 +158,12 @@ export function GeneratePasswordForm() {
   return (
     <div className="grid w-full gap-4 sm:gap-6 lg:h-[calc(100dvh-3rem)] lg:grid-cols-[minmax(24rem,30rem)_minmax(0,1fr)]">
       <div className="min-w-0 lg:overflow-y-auto">
-        <div className="mb-5 flex items-start justify-between gap-4">
+        <div className="mb-3.5 flex items-start justify-between gap-4">
           <div>
             <h1 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
               Make a password
             </h1>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-1.5 text-sm text-muted-foreground">
               Pick the rules, then generate. Everything is created in your
               browser and never leaves it.
             </p>
@@ -169,7 +172,7 @@ export function GeneratePasswordForm() {
 
         <form
           onSubmit={form.handleSubmit(runGenerate)}
-          className="space-y-4 rounded-3xl bg-card p-5"
+          className="space-y-3 rounded-3xl bg-card p-4"
         >
           <PasswordLengthControl
             value={currentLength}
@@ -249,7 +252,7 @@ export function GeneratePasswordForm() {
           <Button
             type="submit"
             size="lg"
-            className="h-12 w-full cursor-pointer rounded-full text-base"
+            className="h-11 w-full cursor-pointer rounded-full text-base"
           >
             <KeyRound />
             Generate {currentQuantity === 1 ? "password" : "passwords"}

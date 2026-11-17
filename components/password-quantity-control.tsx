@@ -39,7 +39,7 @@ export function PasswordQuantityControl(props: {
   };
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-1.5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Layers className="h-4 w-4 text-digit" />
@@ -73,7 +73,7 @@ export function PasswordQuantityControl(props: {
         step={1}
         onValueChange={handleSliderChange}
         onValueCommitted={props.onCommit}
-        className="cursor-pointer py-1"
+        className="cursor-pointer py-0.5"
         aria-label="Password quantity slider"
       />
 
